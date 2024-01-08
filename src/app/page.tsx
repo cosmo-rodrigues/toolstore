@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <main className="flex h-4/5 w-full justify-center items-center my-auto bg-orange-600">
       <Shad.Container className="hidden md:block">
-        <Image src="/workers.png" height={1000} width={1000} alt="Workers" />
+        <Image src="/workers.png" height={700} width={700} alt="Workers" />
       </Shad.Container>
       <Shad.Container className="w-full">
         <Shad.Tabs defaultValue="account" className="w-[400px] mx-auto">

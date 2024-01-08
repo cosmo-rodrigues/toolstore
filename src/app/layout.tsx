@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { HomeBar } from '@/components/store/HomeBar';
 import { Footer } from '@/components/store/Footer';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,9 +23,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
       <body className={`${inter.className} h-screen`}>
-        <HomeBar />
-        {children}
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <HomeBar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
