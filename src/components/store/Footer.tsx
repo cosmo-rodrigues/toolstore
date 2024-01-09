@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import * as Shad from '../ui';
-import Image from 'next/image';
 
 const links = [
   {
@@ -34,7 +33,7 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="sm:flex sm:justify-between py-3 px-4 border-b">
+    <footer className="sm:flex sm:flex-col sm:justify-between py-3 px-4 border-b">
       <Shad.Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
           <nav className="mx-auto flex items-center space-x-4 lg:space-x-6">

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { HomeBar } from '@/components/store/HomeBar';
 import { Footer } from '@/components/store/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
@@ -24,7 +23,6 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <HomeBar />
           {children}
           <Footer />
         </ThemeProvider>
