@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import * as Shad from '../ui';
 import { Menu, Moon, ShoppingCart, Sun } from 'lucide-react';
-import SearchBar from './SearchBar';
+import SearchInput from './SearchInput';
 import Image from 'next/image';
+import { ProductList } from './ProductList';
+import { products } from '@/data/prodcts';
 
 export function StoreBar() {
   const { theme, setTheme } = useTheme();
@@ -31,19 +33,33 @@ export function StoreBar() {
             </Link>
           </div>
           <nav className="w-full max-w-xl mx-6 flex items-center space-x-4 lg:space-x-6">
-            <SearchBar />
+            <SearchInput />
           </nav>
           <div className="flex items-center">
+            <Shad.Sheet>
+              <Shad.SheetTrigger>
+                <ShoppingCart className="h-6 w-6" />
+              </Shad.SheetTrigger>
+              <Shad.SheetContent
+                side="right"
+                className="px-10  w-[300px] sm:w-[400px] overflow-auto"
+              >
+                <div className="flex flex-col gap-4">
+                  <p className="text-lg font-bold">
+                    {products.length} products on cart
+                  </p>
+                  <p>Product 01</p>
+                  <p>Product 02</p>
+                  <p>Product 03</p>
+                  <p>Product 04</p>
+                  <p>Product 05</p>
+                  <p>Product 06</p>
+                  <p>Product 07</p>
+                </div>
+              </Shad.SheetContent>
+            </Shad.Sheet>
             <Shad.Button
-              variant="ghost"
-              size="icon"
-              className="mr-2"
-              aria-label="Shopping Cart"
-            >
-              <ShoppingCart className="h-6 w-6" />
-              <span className="sr-only">Shopping Cart</span>
-            </Shad.Button>
-            <Shad.Button
+              className="ml-3"
               variant="ghost"
               size="icon"
               aria-label="Toggle Theme"

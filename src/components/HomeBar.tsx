@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import * as Shad from '../ui';
+import * as Shad from './ui';
 import Image from 'next/image';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';

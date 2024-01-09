@@ -1,6 +1,8 @@
+'use client';
+
 import { Input } from '@/components/ui/input';
 
-export default function SearchBar() {
+export default function SearchInput() {
   return (
     <div className="relative w-full">
       <Input

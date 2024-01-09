@@ -3,7 +3,7 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { RedirectType, redirect } from 'next/navigation';
 import Image from 'next/image';
-import { HomeBar } from '@/components/store/HomeBar';
+import { HomeBar } from '@/components/HomeBar';
 
 export default async function Home() {
   let loggedIn = false;
@@ -33,7 +33,7 @@ export default async function Home() {
           <Image src="/workers.png" height={700} width={700} alt="Workers" />
         </Shad.Container>
         <Shad.Container className="w-full">
-          <Shad.Tabs defaultValue="account" className="w-[400px] mx-auto">
+          <Shad.Tabs defaultValue="account" className="mx-auto max-w-md">
             <Shad.TabsList className="grid w-full grid-cols-2">
               <Shad.TabsTrigger value="account">Account</Shad.TabsTrigger>
               <Shad.TabsTrigger value="password">Password</Shad.TabsTrigger>
