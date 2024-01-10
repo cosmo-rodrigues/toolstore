@@ -35,7 +35,7 @@ export default async function Home() {
           <Image src="/workers.png" height={700} width={700} alt="Workers" />
         </Shad.Container>
         <Shad.Container className="w-full">
-          <Shad.Tabs defaultValue="create-account" className="mx-auto max-w-md">
+          <Shad.Tabs defaultValue="login" className="mx-auto max-w-md">
             <Shad.TabsList className="grid w-full grid-cols-2">
               <Shad.TabsTrigger
                 value="create-account"

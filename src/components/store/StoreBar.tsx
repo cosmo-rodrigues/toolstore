@@ -3,10 +3,9 @@
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import * as Shad from '../ui';
-import { Menu, Moon, ShoppingCart, Sun } from 'lucide-react';
+import { Moon, ShoppingCart, Sun } from 'lucide-react';
 import SearchInput from './SearchInput';
 import Image from 'next/image';
-import { ProductList } from './ProductList';
 import { products } from '@/data/prodcts';
 
 export function StoreBar() {
@@ -23,7 +22,7 @@ export function StoreBar() {
   ];
 
   return (
-    <header className="sm:flex sm:justify-between py-3 px-4 border-b bg-orange-600 dark:bg-black text-white">
+    <header className="sm:flex sm:justify-between py-3 px-4 border-b bg-orange-600 dark:bg-slate-950 text-white">
       <Shad.Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
           <div className="flex items-center lg:space-x-6 hidden md:block">

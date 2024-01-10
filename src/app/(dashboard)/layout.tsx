@@ -1,6 +1,9 @@
 import { RedirectType, redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { DashboardBar } from '@/components/dashboard/DashboardBar';
+import { DashboardFooter } from '@/components/dashboard/DashboardFooter';
+import * as Shad from '@/components/ui';
 
 export default async function DashboardLayout({
   children,
@@ -25,5 +28,13 @@ export default async function DashboardLayout({
     }
   }
 
-  return <> {children} </>;
+  return (
+    <>
+      <DashboardBar />
+      <Shad.Container className="w-screen h-screen bg-orange-600 dark:bg-slate-900">
+        {children}
+      </Shad.Container>
+      <DashboardFooter />
+    </>
+  );
 }

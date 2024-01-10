@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import * as Shad from './ui';
+import * as Shad from '../ui';
 
 const links = [
   {
@@ -31,9 +31,9 @@ const links = [
   },
 ];
 
-export function Footer() {
+export function StoreFooter() {
   return (
-    <footer className="w-full h-30 bottom-0 sm:flex sm:flex-col sm:justify-between py-3 px-4 border-b bg-orange-600 dark:bg-black">
+    <footer className="w-full h-30 bottom-0 sm:flex sm:flex-col sm:justify-between py-3 px-4 border-b bg-orange-600 dark:bg-slate-950">
       <Shad.Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
           <nav className="mx-auto flex items-center space-x-4 lg:space-x-6 flex-wrap">
