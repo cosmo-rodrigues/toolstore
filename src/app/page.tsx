@@ -30,7 +30,7 @@ export default async function Home() {
     <>
       <HomeBar />
 
-      <main className="flex h-4/5 w-full justify-center mx-auto pt-10 bg-orange-600">
+      <main className="flex h-auto min-h-full w-full justify-center mx-auto py-10 bg-orange-600">
         <Shad.Container className="ml-32 hidden md:block">
           <Image src="/workers.png" height={700} width={700} alt="Workers" />
         </Shad.Container>

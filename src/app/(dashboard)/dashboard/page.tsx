@@ -4,5 +4,5 @@ export default async function Dashboard() {
       <h1>Dashboard</h1>
       <p>Usuário Logado</p>
     </>
-  )
+  );
 }
