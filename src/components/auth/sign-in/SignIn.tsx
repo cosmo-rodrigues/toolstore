@@ -55,7 +55,7 @@ export function SignIn() {
       });
 
       if (error) {
-        throw new Error('LOGIN: ', error);
+        console.error('LOGIN: ', error);
       }
 
       if (session) {
