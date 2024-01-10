@@ -7,9 +7,13 @@ import { Moon, ShoppingCart, Sun } from 'lucide-react';
 import SearchInput from './SearchInput';
 import Image from 'next/image';
 import { products } from '@/data/prodcts';
+import useUserStore from '@/zustand-store/userStore';
+import { ProfileButton } from '../ProfileButton';
 
 export function StoreBar() {
   const { theme, setTheme } = useTheme();
+  const userStore = useUserStore();
+
   const routes = [
     {
       href: '/store',
@@ -27,7 +31,7 @@ export function StoreBar() {
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
           <div className="flex items-center lg:space-x-6 hidden md:block">
             <Link href="/store" className="flex items-center">
-              <Image src="favicon.svg" height={40} width={40} alt="log" />
+              <Image src="/favicon.svg" height={40} width={40} alt="log" />
               <h1 className="text-xl font-bold ml-3">TOOLSTORE</h1>
             </Link>
           </div>
@@ -58,7 +62,7 @@ export function StoreBar() {
               </Shad.SheetContent>
             </Shad.Sheet>
             <Shad.Button
-              className="ml-3"
+              className="ml-3 mr-6"
               variant="ghost"
               size="icon"
               aria-label="Toggle Theme"
@@ -68,6 +72,13 @@ export function StoreBar() {
               <Moon className="absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle Theme</span>
             </Shad.Button>
+            {userStore.isAuthenticated ? (
+              <ProfileButton />
+            ) : (
+              <Shad.Button asChild variant="ghost" className="ml-3">
+                <Link href="/">LOGIN</Link>
+              </Shad.Button>
+            )}
           </div>
         </div>
       </Shad.Container>

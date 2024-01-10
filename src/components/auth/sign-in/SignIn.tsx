@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import * as Shad from '@/components/ui';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
+import useUserStore from '@/zustand-store/userStore';
 
 const formSchema = z.object({
   email: z
@@ -32,6 +33,7 @@ type FormSchema = z.infer<typeof formSchema>;
 
 export function SignIn() {
   const router = useRouter();
+  const userStore = useUserStore();
 
   const form = useForm<FormSchema>({
     defaultValues: {
@@ -48,7 +50,7 @@ export function SignIn() {
 
       const {
         error,
-        data: { session },
+        data: { user },
       } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -58,7 +60,8 @@ export function SignIn() {
         console.error('LOGIN: ', error);
       }
 
-      if (session) {
+      if (user) {
+        userStore.setUser(user.id, user?.user_metadata.username, email);
         form.reset();
         router.refresh();
       }

@@ -1,38 +1,23 @@
 import * as Shad from '@/components/ui';
+import useUserStore from '@/zustand-store/userStore';
 import {
   User,
   createClientComponentClient,
 } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export function ProfileButton() {
-  const [user, setUser] = useState<User | null>();
   const router = useRouter();
+  const userStore = useUserStore();
   const supabase = createClientComponentClient();
-
-  const getUser = async () => {
-    const {
-      error,
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (error) {
-      console.error('NAV AUTH: ', error);
-    }
-
-    if (user) return setUser(user);
-  };
 
   async function handleSignOut() {
     await supabase.auth.signOut();
 
+    userStore.logoutUser();
     router.refresh();
   }
-
-  useEffect(() => {
-    getUser();
-  });
 
   return (
     <Shad.DropdownMenu>
@@ -48,17 +33,25 @@ export function ProfileButton() {
         <Shad.DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">
-              {user?.email?.split('@')[0]}
+              {userStore.username}
             </p>
             <p className="text-xs leading-none text-muted-foreground">
-              {user?.email}
+              {userStore.email}
             </p>
           </div>
         </Shad.DropdownMenuLabel>
         <Shad.DropdownMenuSeparator />
-        <Shad.DropdownMenuGroup>
+        <Shad.DropdownMenuGroup
+          onClick={() => router.push('/dashboard/profile')}
+        >
           <Shad.DropdownMenuItem>
             Profile
+            <Shad.DropdownMenuShortcut>⇧⌘P</Shad.DropdownMenuShortcut>
+          </Shad.DropdownMenuItem>
+        </Shad.DropdownMenuGroup>
+        <Shad.DropdownMenuGroup onClick={() => router.push('/dashboard')}>
+          <Shad.DropdownMenuItem>
+            Dashboard
             <Shad.DropdownMenuShortcut>⇧⌘P</Shad.DropdownMenuShortcut>
           </Shad.DropdownMenuItem>
         </Shad.DropdownMenuGroup>

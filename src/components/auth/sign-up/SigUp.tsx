@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import * as Shad from '@/components/ui';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
+import useUserStore from '@/zustand-store/userStore';
 
 const formSchema = z.object({
   email: z
@@ -39,6 +40,7 @@ type FormSchema = z.infer<typeof formSchema>;
 
 export function SignUp() {
   const router = useRouter();
+  const userStore = useUserStore();
 
   const form = useForm<FormSchema>({
     defaultValues: {
@@ -76,6 +78,8 @@ export function SignUp() {
       }
 
       if (user) {
+        userStore.setUser(user.id, username, email);
+
         form.reset();
         // Change to refresh if you need email verification
         // router.refresh();

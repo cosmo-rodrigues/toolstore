@@ -10,6 +10,7 @@ import Image from 'next/image';
 
 export function DashboardBar() {
   const { theme, setTheme } = useTheme();
+
   const routes = [
     {
       href: '/dashboard/products',
@@ -49,7 +50,7 @@ export function DashboardBar() {
               </Shad.SheetContent>
             </Shad.Sheet>
             <Link href="/store" className="flex items-center">
-              <Image src="favicon.svg" height={40} width={40} alt="log" />
+              <Image src="/favicon.svg" height={40} width={40} alt="log" />
               <h1 className="text-xl font-bold ml-3">TOOLSTORE</h1>
             </Link>
           </div>
