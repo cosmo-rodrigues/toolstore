@@ -1,21 +1,22 @@
 'use client';
 
 import { ProductOnSale } from '@/components/store/ProductOnSale';
-import { Product } from '@/types/product';
+import { useProductStore } from '@/zustand-store/producttStore';
 
-interface ProductListProps {
-  products: Product[];
-  shouldUseCarousel?: boolean;
-}
-
-export const ProductList: React.FC<ProductListProps> = ({ products }) => {
+export function ProductList() {
+  const products = useProductStore((state) => state.products);
+  console.log('products: ', products);
   return (
-    <div className="sm:px-20 md:px-10 space-y-7">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.map((product) => (
-          <ProductOnSale key={product.id} product={product} />
-        ))}
-      </div>
-    </div>
+    <>
+      {products.length > 0 && (
+        <div className="sm:px-20 md:px-10 space-y-7">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {products.map((product) => (
+              <ProductOnSale key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
-};
+}

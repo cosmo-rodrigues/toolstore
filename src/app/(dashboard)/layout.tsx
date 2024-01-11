@@ -31,7 +31,7 @@ export default async function DashboardLayout({
   return (
     <>
       <DashboardBar />
-      <Shad.Container className="w-screen h-screen bg-orange-600 dark:bg-slate-900">
+      <Shad.Container className="bg-orange-300 dark:bg-slate-900 min-h-[80vh]">
         {children}
       </Shad.Container>
       <DashboardFooter />

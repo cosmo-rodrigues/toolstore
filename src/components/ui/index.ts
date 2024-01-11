@@ -10,5 +10,6 @@ export * from './label';
 export * from './menubar';
 export * from './navigation-menu';
 export * from './sheet';
+export * from './table';
 export * from './tabs';
 export * from './textarea';

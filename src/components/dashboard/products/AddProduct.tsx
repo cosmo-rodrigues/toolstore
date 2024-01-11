@@ -66,7 +66,7 @@ export function AddProduct() {
 
       const onlyUrlFromImages = images.map((image) => image.value);
 
-      const { data, error } = await supabase.from('products').insert({
+      const { error } = await supabase.from('products').insert({
         title,
         price,
         description,
@@ -79,6 +79,8 @@ export function AddProduct() {
       if (error) {
         console.error('REGISTER: ', error);
       }
+
+      form.reset();
     } catch (error) {
       console.error('REGISTER: ', error);
     }
@@ -241,7 +243,7 @@ export function AddProduct() {
               </Shad.Button>
             </>
 
-            <Shad.Button type="submit">CREATE ACCOUNT</Shad.Button>
+            <Shad.Button type="submit">REGISTER PRODUCT</Shad.Button>
           </form>
         </Shad.Form>
       </div>
