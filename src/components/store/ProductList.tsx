@@ -5,7 +5,7 @@ import { useProductStore } from '@/zustand-store/producttStore';
 
 export function ProductList() {
   const products = useProductStore((state) => state.products);
-  console.log('products: ', products);
+
   return (
     <>
       {products.length > 0 && (
