@@ -1,5 +1,38 @@
 # ToolStore
 
+## _O maior e-commerce do universo_
+
+#### Aqui você pode comprar e vender
+
+- Cadaste seus produtos
+- Gerencie compra e venda
+- Salve no carrinho para não esquecer
+- Envie links personalizados dos seus produtos
+- Busque produtos por categoria específica
+
+## Tecnologia
+
+- Esta aplicação foi construída utilizando Next JS 14
+- Supabase para criação de toda a infraestrutura
+
+## Instalação
+
+Este projeto necessita do [Node.js](https://nodejs.org/) v20+ para rodar.
+
+- Configure as variáveis de ambiente
+- Instale as dependências e execute para ver em sua máquina.
+- Instale o PNPM, caso não o tenha:
+
+```sh
+npm install -g pnpm
+```
+
+```sh
+cd toolstore
+pnpm install
+pnpm run dev
+```
+
 **If you need to build something we have the right tool.**
 ![home_ca_bl](https://github.com/cosmo-rodrigues/toolstore/assets/69174761/d57b64e8-4f90-404f-881c-923448fd67eb)
 
