@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import * as Shad from '@/components/ui';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
-import useUserStore from '@/zustand-store/userStore';
+import { useUserStore } from '@/zustand-store/userStore';
 
 const formSchema = z.object({
   email: z

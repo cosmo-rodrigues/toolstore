@@ -1,4 +1,4 @@
-import { create } from "zustand"
+import {create} from "zustand"
 import { devtools, persist } from "zustand/middleware"
 
 interface UserStore {
@@ -12,7 +12,7 @@ interface UserStore {
 
 type SetState = (fn: (prevState: UserStore) => UserStore) => void
 
-export const userStore = (set: SetState): UserStore => ({
+const userStore = (set: SetState): UserStore => ({
   userId: "",
   isAuthenticated: false,
   username: "",
@@ -37,6 +37,4 @@ export const userStore = (set: SetState): UserStore => ({
   },
 })
 
-const useUserStore = create(devtools(persist(userStore, { name: "userStore" })))
-
-export default useUserStore
+export const useUserStore = create(devtools(persist(userStore, { name: "userStore" })))

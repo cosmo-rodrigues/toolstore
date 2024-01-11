@@ -53,8 +53,7 @@ export const products = [
     price: 129.95,
     currency: '£',
     category:'Angle Grinder',
-    description: `
-    The DCG405 is a brushless angle grinder which is powered by DeWalt 18v XR lithium ion batteries. It has a slim and streamlined body with rubber overmoulding for excellent comfort, grip and control, while the compact angled gear head allows improved access to tight spaces. The machine is activated by a side mounted slide switch which has built in restart protection; a No-volt release system resets the switch in the event that the battery becomes depleted or detached while the grinder is in operation, thus ensuring it cannot start up by itself when power is restored. The DCG405 also has an electronic clutch and fast action brake, helping to safeguard against kickback or disc bursts and bringing spinning accessories to a rapid halt in under 2 seconds.
+    description: `The DCG405 is a brushless angle grinder which is powered by DeWalt 18v XR lithium ion batteries. It has a slim and streamlined body with rubber overmoulding for excellent comfort, grip and control, while the compact angled gear head allows improved access to tight spaces. The machine is activated by a side mounted slide switch which has built in restart protection; a No-volt release system resets the switch in the event that the battery becomes depleted or detached while the grinder is in operation, thus ensuring it cannot start up by itself when power is restored. The DCG405 also has an electronic clutch and fast action brake, helping to safeguard against kickback or disc bursts and bringing spinning accessories to a rapid halt in under 2 seconds.
 
     The DeWalt brushless motor provides high efficiency operation and in conjunction with a 5.0ah XR battery enables the operator to make 69 cuts through 1/2" steel rebar on a single charge.
 

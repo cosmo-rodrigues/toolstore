@@ -6,8 +6,8 @@ import * as Shad from '../ui';
 import { Moon, ShoppingCart, Sun } from 'lucide-react';
 import SearchInput from './SearchInput';
 import Image from 'next/image';
-import { products } from '@/data/prodcts';
-import useUserStore from '@/zustand-store/userStore';
+import { products } from '@/data/products';
+import { useUserStore } from '@/zustand-store/userStore';
 import { ProfileButton } from '../ProfileButton';
 
 export function StoreBar() {

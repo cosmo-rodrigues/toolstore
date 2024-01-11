@@ -4,12 +4,19 @@ import * as Shad from '@/components/ui';
 
 import { Product } from '@/types/product';
 import { Carousel } from './Carousel';
+import { useCartStore } from '@/zustand-store/cartStore';
 
 interface ProductCard {
   product: Product;
 }
 
-export const ProductCard: React.FC<ProductCard> = ({ product }) => {
+export function ProductCard({ product }: ProductCard) {
+  const cartProduct = useCartStore();
+
+  function handleAddToCart(product: Product) {
+    cartProduct.addProduct(product);
+  }
+
   return (
     <Shad.Card className="flex flex-col items-center justify-between px-7 aspect-square bg-foreground/5 rounded-lg h-full w-[370px]">
       <Shad.CardContent className="pt-4">
@@ -23,8 +30,8 @@ export const ProductCard: React.FC<ProductCard> = ({ product }) => {
         <div>{product?.price}</div>
       </Shad.CardFooter>
       <Shad.CardFooter className="flex items-center self-end -mt-10">
-        <Shad.Button>ADD</Shad.Button>
+        <Shad.Button onClick={() => handleAddToCart(product)}>ADD</Shad.Button>
       </Shad.CardFooter>
     </Shad.Card>
   );
-};
+}

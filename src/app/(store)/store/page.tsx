@@ -2,7 +2,7 @@ import { StoreFooter } from '@/components/store/StoreFooter';
 import { ProductList } from '@/components/store/ProductList';
 import { StoreBar } from '@/components/store/StoreBar';
 import * as Shad from '@/components/ui';
-import { products } from '@/data/prodcts';
+import { products } from '@/data/products';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { useCallback } from 'react';
@@ -11,8 +11,7 @@ export default function Store() {
   const supabase = createServerComponentClient({ cookies });
   const getAllProds = useCallback(async () => {
     try {
-      const { error, data } = await supabase.from('profiles').select('*');
-      console.log(data);
+      const { error, data } = await supabase.from('products').select('*');
 
       if (error) console.error('LIST: ', error);
     } catch (error) {

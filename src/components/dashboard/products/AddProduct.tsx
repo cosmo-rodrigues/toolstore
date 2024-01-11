@@ -7,6 +7,7 @@ import { useFieldArray, useForm } from 'react-hook-form';
 import * as Shad from '@/components/ui';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cn } from '@/lib/utils';
+import { useUserStore } from '@/zustand-store/userStore';
 
 const imagesSchema = z.object({
   value: z.string().url({ message: 'Please enter a valid URL.' }),
@@ -45,6 +46,8 @@ const defaultValues = {
 };
 
 export function AddProduct() {
+  const userStore = useUserStore();
+
   const form = useForm<FormSchema>({
     defaultValues,
     resolver: zodResolver(formSchema),
@@ -61,9 +64,7 @@ export function AddProduct() {
       const { title, price, currency, category, description, images } =
         formValues;
 
-      console.log('formValues: ', formValues);
       const onlyUrlFromImages = images.map((image) => image.value);
-      console.log('onlyUrlFromImages: ', onlyUrlFromImages);
 
       const { data, error } = await supabase.from('products').insert({
         title,
@@ -72,6 +73,7 @@ export function AddProduct() {
         currency,
         category,
         images: onlyUrlFromImages,
+        profile_id: userStore.userId,
       });
 
       if (error) {
@@ -211,7 +213,7 @@ export function AddProduct() {
                             />
                           </Shad.FormControl>
                         </Shad.Container>
-                        <Shad.Container className="w-fit">
+                        <Shad.Container className="w-fit ml-1">
                           <Shad.Button
                             type="button"
                             variant="destructive"

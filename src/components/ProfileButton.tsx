@@ -1,5 +1,5 @@
 import * as Shad from '@/components/ui';
-import useUserStore from '@/zustand-store/userStore';
+import { useUserStore } from '@/zustand-store/userStore';
 import {
   User,
   createClientComponentClient,
