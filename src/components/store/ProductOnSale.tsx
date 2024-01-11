@@ -6,11 +6,11 @@ import { Product } from '@/types/product';
 import { Carousel } from './Carousel';
 import { useCartStore } from '@/zustand-store/cartStore';
 
-interface ProductCard {
+interface ProductOnSale {
   product: Product;
 }
 
-export function ProductCard({ product }: ProductCard) {
+export function ProductOnSale({ product }: ProductOnSale) {
   const cartProduct = useCartStore();
 
   function handleAddToCart(product: Product) {

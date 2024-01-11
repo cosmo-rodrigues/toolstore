@@ -9,21 +9,11 @@ import Image from 'next/image';
 import { products } from '@/data/products';
 import { useUserStore } from '@/zustand-store/userStore';
 import { ProfileButton } from '../ProfileButton';
+import { ProductOnCart } from './ProductOnCart';
 
 export function StoreBar() {
   const { theme, setTheme } = useTheme();
   const userStore = useUserStore();
-
-  const routes = [
-    {
-      href: '/store',
-      label: 'Products',
-    },
-    {
-      href: '/store',
-      label: 'Categories',
-    },
-  ];
 
   return (
     <header className="sm:flex sm:justify-between py-3 px-4 border-b bg-orange-600 dark:bg-slate-950 text-white">
@@ -48,16 +38,8 @@ export function StoreBar() {
                 className="px-10  w-[300px] sm:w-[400px] overflow-auto"
               >
                 <div className="flex flex-col gap-4">
-                  <p className="text-lg font-bold">
-                    {products.length} products on cart
-                  </p>
-                  <p>Product 01</p>
-                  <p>Product 02</p>
-                  <p>Product 03</p>
-                  <p>Product 04</p>
-                  <p>Product 05</p>
-                  <p>Product 06</p>
-                  <p>Product 07</p>
+                  <p className="text-lg font-bold">Cart</p>
+                  <ProductOnCart />
                 </div>
               </Shad.SheetContent>
             </Shad.Sheet>

@@ -36,7 +36,7 @@ export function DashboardFooter() {
     <footer className="w-full h-30 bottom-0 sm:flex sm:flex-col sm:justify-between py-3 px-4 border-b dark:bg-slate-950">
       <Shad.Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
-          <nav className="mx-auto flex items-center space-x-4 lg:space-x-6 flex-wrap">
+          <nav className="mx-auto flex items-center space-x-4 lg:space-x-6 flex-wrap hidden md:block">
             {links.map((each) => (
               <Shad.Button key={each.id} asChild variant="ghost">
                 <Link href={each.href}>{each.label}</Link>

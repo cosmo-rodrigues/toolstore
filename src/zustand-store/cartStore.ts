@@ -26,7 +26,7 @@ const cartStore = (set: SetState): CartProduct => ({
   removeProduct: (id) => {
     set((state) => ({
       ...state,
-      products: state.products.filter((todo) => todo.id !== id),
+      products: state.products.filter((product) => product.id !== id),
     }));
   },
 });
