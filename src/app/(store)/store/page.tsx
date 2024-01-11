@@ -1,23 +1,39 @@
+// @ts-nocheck
+'use client';
+
+import { useCookies } from 'next-client-cookies';
+
 import { StoreFooter } from '@/components/store/StoreFooter';
 import { ProductList } from '@/components/store/ProductList';
 import { StoreBar } from '@/components/store/StoreBar';
 import * as Shad from '@/components/ui';
 import { products } from '@/data/products';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 import { useCallback } from 'react';
+import { useProductStore } from '@/zustand-store/producttStore';
+import { Product } from '@/types/product';
+import { PostgrestError } from '@supabase/supabase-js';
 
 export default function Store() {
-  const supabase = createServerComponentClient({ cookies });
+  const setProducts = useProductStore((state) => state.setProducts);
+  const cookies = useCookies();
+
+  const supabase = createServerComponentClient({ cookies: () => cookies });
   const getAllProds = useCallback(async () => {
     try {
       const { error, data } = await supabase.from('products').select('*');
 
-      if (error) console.error('LIST: ', error);
+      console.log(data);
+      if (error) {
+        console.error('LIST: ', error);
+        return error;
+      }
+
+      setProducts(data);
     } catch (error) {
       console.error('LIST: ', error);
     }
-  }, [supabase]);
+  }, [supabase, setProducts]);
 
   getAllProds();
 

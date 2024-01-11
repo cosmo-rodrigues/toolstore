@@ -1,9 +1,7 @@
-import { cookies } from 'next/headers';
+
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware"
 import { Product } from '@/types/product';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useCallback } from 'react';
 
 interface Products {
   products: Product[];
