@@ -9,7 +9,7 @@ export function ProductOnCart() {
   const removeProduct = useCartStore((state) => state.removeProduct);
   const products = useCartStore((state) => state.products);
 
-  function handleRemoveFromCart(productId: number) {
+  function handleRemoveFromCart(productId: string) {
     removeProduct(productId);
   }
 
@@ -35,7 +35,7 @@ export function ProductOnCart() {
           <Shad.CardFooter className="flex items-center self-end -mt-10">
             <Shad.Button
               variant="destructive"
-              onClick={() => handleRemoveFromCart(product.id)}
+              onClick={() => handleRemoveFromCart(product.id!)}
             >
               REMOVE
             </Shad.Button>

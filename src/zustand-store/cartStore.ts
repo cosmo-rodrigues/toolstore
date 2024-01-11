@@ -5,7 +5,7 @@ import { Product } from '@/types/product';
 interface CartProduct {
   products: Product[];
   addProduct: (product: Product) => void;
-  removeProduct: (id: number) => void;
+  removeProduct: (id: string) => void;
 }
 
 type SetState = (fn: (prevState: CartProduct) => CartProduct) => void
